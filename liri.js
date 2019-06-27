@@ -15,9 +15,13 @@ var spotify = new Spotify(keys.spotify);
 // })
 
 spotify
-  .search({ type: 'track', query: 'Wilson' })
+  .search({ type: 'track', query: 'Wilson', limit: 1 })
   .then(function(response) {
     console.log(response);
+    console.log("==========================")
+    console.log(response.tracks.items); 
+    console.log("==========================")
+    console.log(response.tracks.items.album);
   })
   .catch(function(err) {
     console.log(err);
