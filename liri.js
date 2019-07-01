@@ -47,8 +47,9 @@ function omdbSearch (searchTerm){
       console.log(response.data); 
       console.log("==========================")
       console.log("The movie's title is: " + response.data.Title);
-      console.log("The movie was released in: " + response.data.Year) 
-      console.log("The movie's rating is: " + response.data.imdbRating);
+      console.log("The movie was released in: " + response.data.Year);
+      console.log("IMDB rating: " + response.data.imdbRating);  
+      console.log("Rotten Tomatoes rating : " + response.data.Ratings[0].Value);
       console.log("==========================")
     }
   )
