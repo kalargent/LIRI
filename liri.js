@@ -89,10 +89,10 @@ function concertSearch (searchTerm){
     function (response) {
       console.log(response.data); 
       console.log("==========================")
-      console.log("Venue: " + response.data.venue[0]); 
       console.log("==========================")
     }
   )
+
   .catch(function(error) {
     if (error.response) {
       // The request was made and the server responded with a status code
@@ -113,6 +113,7 @@ function concertSearch (searchTerm){
     }
     console.log(error.config);
   });
+
 }
 
 
