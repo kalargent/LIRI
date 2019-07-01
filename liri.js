@@ -29,11 +29,12 @@ spotify
     // console.log("==========================")
     // console.log(response.tracks.items); 
     // console.log("==========================")
+    console.log("=========== TRACK INFO ==============="); 
     console.log("Song Title: " + response.tracks.items[0].name + ", Track Number: " + response.tracks.items[0].track_number);
     console.log("Album: " + response.tracks.items[0].album.name); 
     console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
     console.log("Preview: " + response.tracks.items[0].preview_url); 
-    console.log("==========================")
+    console.log("=========== TRACK INFO ==============="); 
   })
   .catch(function(err) {
     console.log(err);
@@ -44,8 +45,8 @@ function omdbSearch (searchTerm){
   axios.get (`http://www.omdbapi.com/?t=${searchTerm}&apikey=${omdbKey}`)
   .then (
     function(response) {
-      console.log(response.data); 
-      console.log("==========================")
+      // console.log(response.data); 
+      console.log("=========== MOVIE INFO ===============")
       console.log("The movie's title is: " + response.data.Title);
       console.log("The movie was released in: " + response.data.Year);
       console.log("IMDB rating: " + response.data.imdbRating);  
@@ -54,7 +55,7 @@ function omdbSearch (searchTerm){
       console.log("Language: " + response.data.Language); 
       console.log("Plot: " + response.data.Plot); 
       console.log("Actors: " + response.data.Actors); 
-      console.log("==========================")
+      console.log("=========== MOVIE INFO ===============")
     }
   )
 
@@ -89,11 +90,11 @@ function concertSearch (searchTerm){
     function (response) {
       for (i=0; i < 5; i++) {
       // console.log(response.data); 
-      console.log("==========================")
+      console.log("=========== NEXT FIVE CONCERTS ===============")
       console.log("Date: " + response.data[i].datetime); 
       console.log("Venue: " + response.data[i].venue.name); 
       console.log("Venue location: " + response.data[i].venue.city, response.data[i].venue.region, response.data[i].venue.country);
-      console.log("==========================")
+      console.log("=========== NEXT FIVE CONCERTS ===============")
       }
     }
   )
