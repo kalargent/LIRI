@@ -87,9 +87,13 @@ function concertSearch (searchTerm){
   axios.get(`https://rest.bandsintown.com/artists/${searchTerm}/events?app_id=codingbootcamp`) 
   .then (
     function (response) {
+      for (i=0; i < 10; i++) {
       console.log(response.data); 
       console.log("==========================")
+      console.log("Date: " + response.data[i].datetime); 
+      console.log("Venue: " + response.data[i].venue.name); 
       console.log("==========================")
+      }
     }
   )
 
