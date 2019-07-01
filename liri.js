@@ -83,6 +83,15 @@ function omdbSearch (searchTerm){
 
 }
 
+function concertSearch (searchTerm){ 
+  axios.get(`https://rest.bandsintown.com/artists/${searchTerm}/events?app_id=codingbootcamp?limit=5`) 
+  .then (
+    function (response) {
+      console.log(response.data); 
+    }
+  )
+}
+
 
   switch (command) {
     case "spotify": 
@@ -100,6 +109,14 @@ function omdbSearch (searchTerm){
       omdbSearch(searchTerm); 
     }
     else {omdbSearch(searchTerm)}; 
+    break; 
+
+    case "concert":
+    if (!searchTerm) {
+      searchTerm = "Fall Out Boy"; 
+      concertSearch(searchTerm); 
+    }
+    else {concertSearch(searchTerm)}; 
     break; 
   }
 
