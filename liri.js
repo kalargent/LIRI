@@ -23,12 +23,12 @@ var searchTerm = process.argv[3];
 
 function spotifySearch (searchTerm) {
 spotify
-  .search({ type: 'track', query: searchTerm, limit: 1 })
+  .search({ type: 'track', query: searchTerm, limit: 10})
   .then(function(response) {
-    console.log(response);
-    console.log("==========================")
-    console.log(response.tracks.items); 
-    console.log("==========================")
+    // console.log(response);
+    // console.log("==========================")
+    // console.log(response.tracks.items); 
+    // console.log("==========================")
     console.log("Song Title: " + response.tracks.items[0].name + ", Track Number: " + response.tracks.items[0].track_number);
     console.log("Album: " + response.tracks.items[0].album.name); 
     console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
@@ -44,7 +44,12 @@ function omdbSearch (searchTerm){
   axios.get (`http://www.omdbapi.com/?t=${searchTerm}&apikey=${omdbKey}`)
   .then (
     function(response) {
+      console.log(response.data); 
+      console.log("==========================")
+      console.log("The movie's title is: " + response.data.Title);
+      console.log("The movie was released in: " + response.data.Year) 
       console.log("The movie's rating is: " + response.data.imdbRating);
+      console.log("==========================")
     }
   )
 
@@ -77,6 +82,11 @@ function omdbSearch (searchTerm){
   switch (command) {
     case "spotify": 
     spotifySearch(searchTerm); 
+    if (!searchTerm) {
+      searchTerm = "The Sign" 
+      spotifySearch(searchTerm); 
+    }
+    else {spotifySearch(searchTerm);}
     break; 
 
     case "movie": 
