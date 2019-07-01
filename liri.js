@@ -92,6 +92,7 @@ function concertSearch (searchTerm){
       console.log("==========================")
       console.log("Date: " + response.data[i].datetime); 
       console.log("Venue: " + response.data[i].venue.name); 
+      console.log("Venue location: " + response.data[i].venue.city, response.data[i].venue.region, response.data[i].venue.country);
       console.log("==========================")
       }
     }
