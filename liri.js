@@ -50,6 +50,10 @@ function omdbSearch (searchTerm){
       console.log("The movie was released in: " + response.data.Year);
       console.log("IMDB rating: " + response.data.imdbRating);  
       console.log("Rotten Tomatoes rating : " + response.data.Ratings[0].Value);
+      console.log("Produced in: " + response.data.Country); 
+      console.log("Language: " + response.data.Language); 
+      console.log("Plot: " + response.data.Plot); 
+      console.log("Actors: " + response.data.Actors); 
       console.log("==========================")
     }
   )
