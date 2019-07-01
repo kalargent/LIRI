@@ -86,16 +86,20 @@ function omdbSearch (searchTerm){
 
   switch (command) {
     case "spotify": 
-    spotifySearch(searchTerm); 
+    // spotifySearch(searchTerm); 
     if (!searchTerm) {
-      searchTerm = "The Sign" 
+      searchTerm = "The Sign Ace of Base";  
       spotifySearch(searchTerm); 
     }
     else {spotifySearch(searchTerm);}
     break; 
 
-    case "movie": 
-    omdbSearch(searchTerm); 
+    case "movie":
+    if (!searchTerm) {
+      searchTerm = "Mr. Nobody"; 
+      omdbSearch(searchTerm); 
+    }
+    else {omdbSearch(searchTerm)}; 
     break; 
   }
 
