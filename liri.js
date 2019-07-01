@@ -8,6 +8,8 @@ var spotify = new Spotify(keys.spotify);
 
 var omdbKey = "trilogy"; 
 
+var fs = require("fs"); 
+
 var axios = require("axios"); 
 
 
@@ -123,10 +125,14 @@ function concertSearch (searchTerm){
 
 }
 
-function doThis (searchTerm) {
-  
+function doThis () {
+  fs.readFile("random.txt", "utf8", function (err, data){
+    if (err) {
+      return console.log("error"); 
+    }
+    console.log(data); 
+  })
 }
-
 
   switch (command) {
     case "spotify": 
@@ -155,6 +161,8 @@ function doThis (searchTerm) {
     break; 
 
     case "do-this": 
+    doThis(); 
+    break; 
   }
 
 
