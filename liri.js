@@ -88,7 +88,7 @@ function concertSearch (searchTerm){
   .then (
     function (response) {
       for (i=0; i < 10; i++) {
-      console.log(response.data); 
+      // console.log(response.data); 
       console.log("==========================")
       console.log("Date: " + response.data[i].datetime); 
       console.log("Venue: " + response.data[i].venue.name); 
