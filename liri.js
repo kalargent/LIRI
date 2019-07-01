@@ -29,9 +29,9 @@ spotify
     console.log("==========================")
     console.log(response.tracks.items); 
     console.log("==========================")
-    console.log(response.tracks.items[0].name);
+    console.log("Song Title: " + response.tracks.items[0].name);
+    console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
     console.log("==========================")
-    console.log(response.tracks.items[0].artists[0]);
   })
   .catch(function(err) {
     console.log(err);
