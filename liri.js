@@ -41,7 +41,7 @@ spotify
     console.log("=========== TRACK INFO ==============="); 
   })
   .catch(function(err) {
-    console.log(err);
+    console.log("no matching songs found");
   });
 }
 
