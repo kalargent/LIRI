@@ -185,4 +185,12 @@ function doThis () {
     break; 
   }
 
+  fs.appendFile("log.txt", searchTerm, function (err){
+    if (err) {
+      return console.log (err); 
+    }
+
+    console.log("log updated"); 
+  })
+
 
