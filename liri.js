@@ -185,9 +185,12 @@ function doThis () {
     case "do-this": 
     doThis(); 
     break; 
+
+    default: 
+    console.log(" Type spotify to ")
   }
 
-  fs.appendFile("log.txt", searchTerm, function (err){
+  fs.appendFile("log.txt", searchTerm + "\r\n", function (err){
     if (err) {
       return console.log (err); 
     }
