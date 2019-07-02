@@ -90,8 +90,10 @@ function concertSearch (searchTerm){
   axios.get(`https://rest.bandsintown.com/artists/${searchTerm}/events?app_id=codingbootcamp`) 
   .then (
     function (response) {
+      console.log(searchTerm); 
+      console.log(response.data); 
       console.log("=========== NEXT FIVE CONCERTS ===============")
-      for (i=0; i < 5; i++) {
+      for (i=0; i < 3; i++) {
       // console.log(response.data); 
       console.log("Date: " + response.data[i].datetime); 
       console.log("Venue: " + response.data[i].venue.name); 
