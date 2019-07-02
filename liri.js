@@ -97,7 +97,7 @@ function concertSearch (searchTerm){
       console.log("=========== NEXT FIVE CONCERTS ===============")
       for (i=0; i < 3; i++) {
       // console.log(response.data); 
-      console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY " + "HH:MM A")); 
+      console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY " + "h:mm A")); 
       console.log("Venue: " + response.data[i].venue.name); 
       console.log("Venue location: " + response.data[i].venue.city, response.data[i].venue.region, response.data[i].venue.country);
       console.log("----------------------------------------------")
@@ -191,7 +191,6 @@ function doThis () {
     if (err) {
       return console.log (err); 
     }
-
     console.log("log updated"); 
   })
 
