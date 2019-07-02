@@ -124,7 +124,7 @@ function concertSearch (searchTerm){
       // Something happened in setting up the request that triggered an Error
       console.log("Error", error.message);
     }
-    console.log(searchTerm + " is not currently touring after the shows listed above. If there are no shows listed above, the artist is not currently touring.");
+    console.log("The list above shows the next five shows for " +searchTerm + ". If there are no shows listed, the artist is not currently touring.");
   });
 
 }
