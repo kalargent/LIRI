@@ -111,9 +111,19 @@ function concertSearch (searchTerm){
       console.log("=========== NEXT FIVE CONCERTS ===============")
       for (i=0; i < 5; i++) {
       // console.log(response.data); 
-      console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY " + "h:mm A")); 
-      console.log("Venue: " + response.data[i].venue.name); 
-      console.log("Venue location: " + response.data[i].venue.city, response.data[i].venue.region, response.data[i].venue.country);
+      var concertData = response.data[i]
+      var concerts = [`
+        Date: ${moment(concertData.datetime).format("MM/DD/YYYY " + "h:mm A")}, 
+        Venue: ${concertData.venue.name}, 
+        City: ${concertData.venue.city}, 
+        Region: ${concertData.venue.region},
+        Country: ${concertData.venue.country},
+      `].join("/r/n"); 
+      console.log(concerts); 
+      logging(concerts); 
+      // console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY " + "h:mm A")); 
+      // console.log("Venue: " + response.data[i].venue.name); 
+      // console.log("Venue location: " + response.data[i].venue.city, response.data[i].venue.region, response.data[i].venue.country);
       console.log("----------------------------------------------")
       }
       console.log("=========== NEXT FIVE CONCERTS ===============")
@@ -169,13 +179,8 @@ function doThis () {
 
       console.log("=========== RICK ROLL ==============="); 
       console.log (doThisInfo); 
-      logging(doThisInfo); 
-      // console.log("Song Title: " + response.tracks.items[0].name + ", Track Number: " + response.tracks.items[0].track_number);
-      // console.log("Album: " + response.tracks.items[0].album.name); 
-      // console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
-      // console.log("Preview: " + response.tracks.items[0].preview_url); 
+      logging(doThisInfo);
       console.log("=========== RICK ROLL ==============="); 
-      logging(searchTerm); 
     }
     )
     
@@ -226,7 +231,7 @@ function doThis () {
     if (err) {
       return console.log (err); 
     }
-    console.log("log updated"); 
+    // console.log("log updated"); 
   })
 }
 
