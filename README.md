@@ -28,10 +28,9 @@ LIRI uses basic javascript functions to search APIs and return the results, logg
 * Users can enter `concert` to search for a list of concerts. By default, LIRI displays five (5) upcoming concerts. 
     * If no concert is specified, LIRI assumes who you want to see and lists their upcoming concerts. 
 * Users can enter `do-this` and LIRI will pull back a surprise! 
-* Search terms are written to the log.txt file each time a user searches. 
+* Search results are written to the log.txt file each time a user searches. 
 
 ## Backlog 
-* Save the API response as an object so that the response can also be logged. 
 * Create a front end so that users can access the app via the web. 
 
 ## My Role 
