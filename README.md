@@ -3,6 +3,9 @@ LIRI is a command line interface (CLI) app that helps users get more information
 
 LIRI uses basic javascript functions to search APIs and return the results, logging them out so users can view them. A simple Switch/Case statement handles the commands as the user enters them. Spotify keys are stored in the .env file, and this file is excluded from the repo to protect my privacy. 
 
+## Video
+[Named Link]([Named Link](https://embed.vidyard.com/share/Ct1gXwxqLqhpgtaSSh1wvt? "Named link title")) 
+
 ## Technologies Used
 * Node.js
 * Javascript 
@@ -26,5 +29,5 @@ LIRI uses basic javascript functions to search APIs and return the results, logg
     * If no concert is specified, LIRI assumes who you want to see and lists their upcoming concerts. 
 * Users can enter `do-this` and LIRI will pull back a surprise! 
 
-### My Role 
+## My Role 
 I was the sole developer on this project and was provided academic support from my TAs and Instructor when I got stuck. 
