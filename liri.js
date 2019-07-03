@@ -93,9 +93,9 @@ function concertSearch (searchTerm){
   .then (
     function (response) {
       console.log(searchTerm); 
-      console.log(response.data); 
+      // console.log(response.data); 
       console.log("=========== NEXT FIVE CONCERTS ===============")
-      for (i=0; i < 3; i++) {
+      for (i=0; i < 5; i++) {
       // console.log(response.data); 
       console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY " + "h:mm A")); 
       console.log("Venue: " + response.data[i].venue.name); 
@@ -176,7 +176,7 @@ function doThis () {
 
     case "concert":
     if (!searchTerm) {
-      searchTerm = "Fall Out Boy"; 
+      searchTerm = "Tame Impala"; 
       concertSearch(searchTerm); 
     }
     else {concertSearch(searchTerm)}; 
