@@ -187,7 +187,12 @@ function doThis () {
     break; 
 
     default: 
-    console.log(" Type spotify to ")
+    console.log("=========== WELCOME ==============="); 
+    console.log("Welcome to LIRI! LIRI can help you find information about your favorites songs and movies, and will help you find concerts you want to attend.");
+    console.log("To find a song, use the 'spotify' command."); 
+    console.log("To find a movie, use the 'movie' command."); 
+    console.log("To find a song, use the 'concert' command."); 
+    console.log("Try the 'do-this' command for a random surprise!"); 
   }
 
   fs.appendFile("log.txt", searchTerm + "\r\n", function (err){
