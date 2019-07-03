@@ -199,7 +199,7 @@ function doThis () {
     if (err) {
       return console.log (err); 
     }
-    console.log("log updated"); 
+    // console.log("log updated"); 
   })
 
 

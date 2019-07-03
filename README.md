@@ -30,5 +30,9 @@ LIRI uses basic javascript functions to search APIs and return the results, logg
 * Users can enter `do-this` and LIRI will pull back a surprise! 
 * Search terms are written to the log.txt file each time a user searches. 
 
+## Backlog 
+* Save the API response as an object so that the response can also be logged. 
+* Create a front end so that users can access the app via the web. 
+
 ## My Role 
 I was the sole developer on this project and was provided academic support from my TAs and Instructor when I got stuck. 
