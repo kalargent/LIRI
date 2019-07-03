@@ -1,5 +1,7 @@
 require("dotenv").config(); 
 
+// declaring the variables we'll need to run LIRI
+
 var keys = require("./keys"); 
 
 var Spotify = require('node-spotify-api');
@@ -15,25 +17,18 @@ var axios = require("axios");
 var moment = require("moment"); 
 
 
-// spotify.search({type: "track", query: "phoenix"}, function(err, data){ 
-//     if (err) {
-//         return console.log("spotify error " + err); 
-//     }
-
-//     console.log(data); 
-// })
+// Global Variables
 var command = process.argv[2];
 var searchTerm = process.argv[3]; 
 
+// Spotify search function, taken from the node-spotify-npm example as a starter
 function spotifySearch (searchTerm) {
 spotify
   .search({ type: 'track', query: searchTerm, limit: 10})
   .then(function(response) {
-    // console.log(response);
-    // console.log("==========================")
-    // console.log(response.tracks.items); 
-    // console.log("==========================")
+    // declaring data as a variable so i don't have to retype the same thing every line
     var data = response.tracks.items[0]; 
+    // creating the song object using template literal notation and joining the results so they display correctly in the console
     var song = [`
       Title: ${data.name},
       Album: ${data.album.name},
@@ -41,22 +36,27 @@ spotify
       Preview: ${data.preview_url}
     `  
     ].join("/n/r"); 
+
+    // logging the information so the end user can see it, and logging it to log.txt
     console.log("=========== TRACK INFO ==============="); 
     console.log(song); 
     console.log("=========== TRACK INFO ==============="); 
     logging(song); 
   })
+  // error handling
   .catch(function(err) {
     console.log("no matching songs found");
   });
 }
 
+// OMDB search function using axios, general format taken from class activities 
 function omdbSearch (searchTerm){ 
   axios.get (`http://www.omdbapi.com/?t=${searchTerm}&apikey=${omdbKey}`)
   .then (
     function(response) {
-      // console.log(response.data); 
+      // creating a variable to make for less typing 
       var movieData = response.data; 
+      // creating the movie object using template literal notation and joining the results so they display correctly in the console
       var movieInfo = [`
         Title: ${movieData.Title},
         Year: ${movieData.Year},
@@ -69,7 +69,7 @@ function omdbSearch (searchTerm){
         `
         
       ].join("/r/n"); 
-
+      // log to console and to the log.txt
       console.log("=========== MOVIE INFO ===============")
       console.log(movieInfo); 
       logging(movieInfo); 
@@ -77,7 +77,7 @@ function omdbSearch (searchTerm){
     }
   )
 
-
+  // error handling
   .catch(function(error) {
     if (error.response) {
       // The request was made and the server responded with a status code
@@ -102,15 +102,15 @@ function omdbSearch (searchTerm){
 
 }
 
+// Bands in Town search function, using axios
 function concertSearch (searchTerm){ 
   axios.get(`https://rest.bandsintown.com/artists/${searchTerm}/events?app_id=codingbootcamp`) 
   .then (
     function (response) {
       console.log(searchTerm); 
-      // console.log(response.data); 
       console.log("=========== NEXT FIVE CONCERTS ===============")
+      // creating For loop that loops through the first five results, uses template literal to format them into an object 
       for (i=0; i < 5; i++) {
-      // console.log(response.data); 
       var concertData = response.data[i]
       var concerts = [`
         Date: ${moment(concertData.datetime).format("MM/DD/YYYY " + "h:mm A")}, 
@@ -119,17 +119,16 @@ function concertSearch (searchTerm){
         Region: ${concertData.venue.region},
         Country: ${concertData.venue.country},
       `].join("/r/n"); 
+      
+      // logging to console and to the log.txt
       console.log(concerts); 
       logging(concerts); 
-      // console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY " + "h:mm A")); 
-      // console.log("Venue: " + response.data[i].venue.name); 
-      // console.log("Venue location: " + response.data[i].venue.city, response.data[i].venue.region, response.data[i].venue.country);
       console.log("----------------------------------------------")
       }
       console.log("=========== NEXT FIVE CONCERTS ===============")
     }
   )
-
+  //error handling
   .catch(function(error) {
     if (error.response) {
       // The request was made and the server responded with a status code
@@ -153,17 +152,16 @@ function concertSearch (searchTerm){
 
 }
 
+// Do this function to read the random.txt 
 function doThis () {
   fs.readFile("random.txt", "utf8", function (err, data){
     if (err) {
       return console.log("error"); 
     }
-    // console.log(data); 
-
+    // using template literal notation, creating an object 
     var doThis = data.split(","); 
     searchTerm = doThis[1];
-    // console.log(searchTerm);  
-
+   
     spotify
     .search ({type: "track", query: searchTerm})
     .then (function(response) {
@@ -177,6 +175,7 @@ function doThis () {
         Preview: ${doThis.preview_url} 
       `].join("/r/n")
 
+      // logging to console and to log.txt
       console.log("=========== RICK ROLL ==============="); 
       console.log (doThisInfo); 
       logging(doThisInfo);
@@ -187,6 +186,7 @@ function doThis () {
   })
 }
 
+  // switch/case to run the app 
   switch (command) {
     case "spotify": 
     // spotifySearch(searchTerm); 
@@ -226,6 +226,7 @@ function doThis () {
     console.log("Try the 'do-this' command for a random surprise!"); 
   }
 
+  // function to append each new entry to the log.txt
   function logging (logItem){
   fs.appendFile("log.txt", logItem+ "\r\n", function (err){
     if (err) {
