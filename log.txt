@@ -131,3 +131,17 @@ hello
       Preview: https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=84f532c76b4944f6978ee98e21ea4067
     
  "Never Gonna Give You Up"
+
+      Title: The Sign,
+      Album: The Sign (US Album) [Remastered],
+      Artist: Ace of Base , 
+      Preview: https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=84f532c76b4944f6978ee98e21ea4067
+    
+
+        Title: Never Gonna Give You Up, 
+        Track: 1,
+        Album: Whenever You Need Somebody, 
+        Artist: Rick Astley, 
+        Preview: https://p.scdn.co/mp3-preview/22bf10aff02db272f0a053dff5c0063d729df988?cid=84f532c76b4944f6978ee98e21ea4067 
+      
+ "Never Gonna Give You Up"

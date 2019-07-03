@@ -158,11 +158,22 @@ function doThis () {
     .search ({type: "track", query: searchTerm})
     .then (function(response) {
       // console.log(response); 
+      var doThis = response.tracks.items[0]; 
+      var doThisInfo = [`
+        Title: ${doThis.name}, 
+        Track: ${doThis.track_number},
+        Album: ${doThis.album.name}, 
+        Artist: ${doThis.artists[0].name}, 
+        Preview: ${doThis.preview_url} 
+      `].join("/r/n")
+
       console.log("=========== RICK ROLL ==============="); 
-      console.log("Song Title: " + response.tracks.items[0].name + ", Track Number: " + response.tracks.items[0].track_number);
-      console.log("Album: " + response.tracks.items[0].album.name); 
-      console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
-      console.log("Preview: " + response.tracks.items[0].preview_url); 
+      console.log (doThisInfo); 
+      logging(doThisInfo); 
+      // console.log("Song Title: " + response.tracks.items[0].name + ", Track Number: " + response.tracks.items[0].track_number);
+      // console.log("Album: " + response.tracks.items[0].album.name); 
+      // console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
+      // console.log("Preview: " + response.tracks.items[0].preview_url); 
       console.log("=========== RICK ROLL ==============="); 
       logging(searchTerm); 
     }
