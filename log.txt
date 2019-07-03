@@ -63,3 +63,44 @@ psycho
 hello
 hell
 hello
+hello
+
+      Title: Hello,
+      Album: 25,
+      Artist: Adele , 
+      Preview: https://p.scdn.co/mp3-preview/0b90429fd554bad6785faa2b8931d613db4a0ee4?cid=84f532c76b4944f6978ee98e21ea4067
+    
+
+      Title: Lucid Dreams,
+      Album: Goodbye & Good Riddance,
+      Artist: Juice WRLD , 
+      Preview: null
+    
+
+      Title: Lucid Dreams,
+      Album: Goodbye & Good Riddance,
+      Artist: Juice WRLD , 
+      Preview: null
+    
+
+      Title: The Phoenix,
+      Album: Save Rock And Roll,
+      Artist: Fall Out Boy , 
+      Preview: null
+    
+
+      Title: The Phoenix,
+      Album: Save Rock And Roll,
+      Artist: Fall Out Boy , 
+      Preview: null
+    
+
+        Title: Billy Madison,
+        Year: 1995,
+        IMDB Rating: 6.4, 
+        Rotten Tomatoes Rating: 6.4/10, 
+        Produced in: USA, 
+        Language(s): English, French, Spanish, 
+        Plot: In order to inherit his fed up father's hotel empire, an immature and lazy man must repeat grades 1-12 all over again., 
+        Actors: Adam Sandler, Darren McGavin, Bridgette Wilson-Sampras, Bradley Whitford
+        
