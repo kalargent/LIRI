@@ -42,11 +42,6 @@ spotify
     `  
     ].join("/n/r"); 
     console.log("=========== TRACK INFO ==============="); 
-    // console.log("Song Title: " + response.tracks.items[0].name + ", Track Number: " + response.tracks.items[0].track_number);
-    // console.log("Album: " + response.tracks.items[0].album.name); 
-    // console.log("Artist: " + response.tracks.items[0].artists[0].name);
-    // console.log("Preview: " + response.tracks.items[0].preview_url); 
-
     console.log(song); 
     console.log("=========== TRACK INFO ==============="); 
     logging(song); 
@@ -76,14 +71,6 @@ function omdbSearch (searchTerm){
       ].join("/r/n"); 
 
       console.log("=========== MOVIE INFO ===============")
-      // console.log("The movie's title is: " + response.data.Title);
-      // console.log("The movie was released in: " + response.data.Year);
-      // console.log("IMDB rating: " + response.data.imdbRating);  
-      // console.log("Rotten Tomatoes rating : " + response.data.Ratings[0].Value);
-      // console.log("Produced in: " + response.data.Country); 
-      // console.log("Language: " + response.data.Language); 
-      // console.log("Plot: " + response.data.Plot); 
-      // console.log("Actors: " + response.data.Actors); 
       console.log(movieInfo); 
       logging(movieInfo); 
       console.log("=========== MOVIE INFO ===============")
@@ -177,6 +164,7 @@ function doThis () {
       console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
       console.log("Preview: " + response.tracks.items[0].preview_url); 
       console.log("=========== RICK ROLL ==============="); 
+      logging(searchTerm); 
     }
     )
     
