@@ -33,12 +33,18 @@ spotify
     // console.log("==========================")
     // console.log(response.tracks.items); 
     // console.log("==========================")
+    var data = response.tracks.items[0]; 
+    var song = [`
+      Title: ${data.name},
+      Album: ${data.album.name},
+      Artist: ${data.artists[0].name} , 
+      Preview: ${data.preview_url}
+    `  
+    ].join("/n/r"); 
     console.log("=========== TRACK INFO ==============="); 
-    console.log("Song Title: " + response.tracks.items[0].name + ", Track Number: " + response.tracks.items[0].track_number);
-    console.log("Album: " + response.tracks.items[0].album.name); 
-    console.log("Artist: " + response.tracks.items[0].artists[0].name);
-    console.log("Preview: " + response.tracks.items[0].preview_url); 
+    console.log(song); 
     console.log("=========== TRACK INFO ==============="); 
+    logging(song); 
   })
   .catch(function(err) {
     console.log("no matching songs found");
@@ -50,15 +56,23 @@ function omdbSearch (searchTerm){
   .then (
     function(response) {
       // console.log(response.data); 
+      var movieData = response.data; 
+      var movieInfo = [`
+        Title: ${movieData.Title},
+        Year: ${movieData.Year},
+        IMDB Rating: ${movieData.imdbRating}, 
+        Rotten Tomatoes Rating: ${movieData.Ratings[0].Value}, 
+        Produced in: ${movieData.Country}, 
+        Language(s): ${movieData.Language}, 
+        Plot: ${movieData.Plot}, 
+        Actors: ${movieData.Actors}
+        `
+        
+      ].join("/r/n"); 
+
       console.log("=========== MOVIE INFO ===============")
-      console.log("The movie's title is: " + response.data.Title);
-      console.log("The movie was released in: " + response.data.Year);
-      console.log("IMDB rating: " + response.data.imdbRating);  
-      console.log("Rotten Tomatoes rating : " + response.data.Ratings[0].Value);
-      console.log("Produced in: " + response.data.Country); 
-      console.log("Language: " + response.data.Language); 
-      console.log("Plot: " + response.data.Plot); 
-      console.log("Actors: " + response.data.Actors); 
+      console.log(movieInfo); 
+      logging(movieInfo); 
       console.log("=========== MOVIE INFO ===============")
     }
   )
@@ -97,9 +111,19 @@ function concertSearch (searchTerm){
       console.log("=========== NEXT FIVE CONCERTS ===============")
       for (i=0; i < 5; i++) {
       // console.log(response.data); 
-      console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY " + "h:mm A")); 
-      console.log("Venue: " + response.data[i].venue.name); 
-      console.log("Venue location: " + response.data[i].venue.city, response.data[i].venue.region, response.data[i].venue.country);
+      var concertData = response.data[i]
+      var concerts = [`
+        Date: ${moment(concertData.datetime).format("MM/DD/YYYY " + "h:mm A")}, 
+        Venue: ${concertData.venue.name}, 
+        City: ${concertData.venue.city}, 
+        Region: ${concertData.venue.region},
+        Country: ${concertData.venue.country},
+      `].join("/r/n"); 
+      console.log(concerts); 
+      logging(concerts); 
+      // console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY " + "h:mm A")); 
+      // console.log("Venue: " + response.data[i].venue.name); 
+      // console.log("Venue location: " + response.data[i].venue.city, response.data[i].venue.region, response.data[i].venue.country);
       console.log("----------------------------------------------")
       }
       console.log("=========== NEXT FIVE CONCERTS ===============")
@@ -144,11 +168,18 @@ function doThis () {
     .search ({type: "track", query: searchTerm})
     .then (function(response) {
       // console.log(response); 
+      var doThis = response.tracks.items[0]; 
+      var doThisInfo = [`
+        Title: ${doThis.name}, 
+        Track: ${doThis.track_number},
+        Album: ${doThis.album.name}, 
+        Artist: ${doThis.artists[0].name}, 
+        Preview: ${doThis.preview_url} 
+      `].join("/r/n")
+
       console.log("=========== RICK ROLL ==============="); 
-      console.log("Song Title: " + response.tracks.items[0].name + ", Track Number: " + response.tracks.items[0].track_number);
-      console.log("Album: " + response.tracks.items[0].album.name); 
-      console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
-      console.log("Preview: " + response.tracks.items[0].preview_url); 
+      console.log (doThisInfo); 
+      logging(doThisInfo);
       console.log("=========== RICK ROLL ==============="); 
     }
     )
@@ -195,11 +226,13 @@ function doThis () {
     console.log("Try the 'do-this' command for a random surprise!"); 
   }
 
-  fs.appendFile("log.txt", searchTerm + "\r\n", function (err){
+  function logging (logItem){
+  fs.appendFile("log.txt", logItem+ "\r\n", function (err){
     if (err) {
       return console.log (err); 
     }
     // console.log("log updated"); 
   })
+}
 
 
